@@ -8,6 +8,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root {
+    --black: #0a0a0a;
+    --white: #f5f0e8;
+    --cream: #f0ead8;
+    --orange: #ff4d00;
+    --yellow: #f5c842;
+    --dark: #1a1a1a;
+    --mid: #333;
+  }
 html{scroll-behavior:smooth;overflow-x:hidden}
 body{background:#0a0a0a;color:#fff;font-family:'Inter',sans-serif;overflow-x:hidden}
 a{text-decoration:none;color:inherit}
@@ -22,7 +31,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .nav-links a{font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;opacity:0.7;transition:opacity .2s}
 .nav-links a:hover{opacity:1}
 .nav-cta{background:var(--orange);color:#fff!important;opacity:1!important;padding:10px 22px;border-radius:4px}
-.nav-cta:hover{background:#d43a0a}
+.nav-cta:hover{background:#cc3d00}
 
 /* HERO */
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding:0 24px}
@@ -36,7 +45,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .hero-title em{display:block;font-style:normal;color:var(--orange)}
 .hero-sub{font-size:16px;font-weight:300;opacity:.55;max-width:480px;margin:0 auto 40px;line-height:1.65}
 .hero-btn{display:inline-block;background:var(--orange);color:#fff;padding:16px 44px;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;border-radius:4px;transition:background .2s,transform .2s}
-.hero-btn:hover{background:#d43a0a;transform:translateY(-2px)}
+.hero-btn:hover{background:#cc3d00;transform:translateY(-2px)}
 
 /* APPS SECTION */
 .section-apps{padding:120px 60px;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:center}
@@ -48,7 +57,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .apps-reasons li{display:flex;align-items:center;gap:14px;font-size:15px;font-weight:300;opacity:.65}
 .apps-reasons li::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--orange);flex-shrink:0}
 .btn-orange{display:inline-block;background:var(--orange);color:#fff;padding:14px 34px;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;border-radius:4px;transition:background .2s,transform .2s}
-.btn-orange:hover{background:#d43a0a;transform:translateY(-2px)}
+.btn-orange:hover{background:#cc3d00;transform:translateY(-2px)}
 
 /* POLAROID FAN */
 .polaroid-fan{position:relative;width:420px;height:400px;flex-shrink:0}
@@ -97,7 +106,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .ticket-row.agotado .ticket-price{color:#aaa}
 .comprar-btn{width:100%;margin-top:20px;padding:16px;background:#ccc;color:#fff;border:none;font-size:15px;font-weight:600;border-radius:10px;cursor:not-allowed;font-family:'Inter',sans-serif;transition:background .2s;letter-spacing:.3px}
 .comprar-btn.activo{background:var(--orange);cursor:pointer}
-.comprar-btn.activo:hover{background:#d43a0a}
+.comprar-btn.activo:hover{background:#cc3d00}
 .tickets-note{font-size:12px;opacity:.35;margin-top:14px;font-weight:300;line-height:1.6}
 
 /* FOTO GRID */
@@ -148,7 +157,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .modal-input::placeholder{opacity:.35}
 .modal-error{color:var(--orange);font-size:12px;margin-bottom:12px;display:none}
 .modal-btn{display:block;width:100%;padding:15px;background:var(--orange);color:#fff;border:none;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border-radius:8px;cursor:pointer;text-align:center;font-family:'Inter',sans-serif;transition:background .2s;margin-bottom:10px}
-.modal-btn:hover{background:#d43a0a}
+.modal-btn:hover{background:#cc3d00}
 .modal-btn-green{background:#16a34a}
 .modal-btn-green:hover{background:#15803d}
 .modal-step{display:none}
