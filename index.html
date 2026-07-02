@@ -78,6 +78,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .evento-desc{font-size:16px;font-weight:300;line-height:1.8;opacity:.6;max-width:680px;margin-bottom:70px}
 .evento-desc p+p{margin-top:16px}
 
+/* UBICACION */
+.ubicacion-card{display:flex;align-items:stretch;gap:0;max-width:680px;height:170px;margin-bottom:60px;background:#161616;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.08);transition:border-color .2s,transform .2s}
+.ubicacion-card:hover{border-color:rgba(255,77,0,.5);transform:translateY(-2px)}
+.ubicacion-map{position:relative;width:220px;flex-shrink:0;height:100%}
+.ubicacion-map iframe{width:100%;height:100%;border:0;display:block;pointer-events:none}
+.ubicacion-map-overlay{position:absolute;inset:0}
+.ubicacion-info{flex:1;display:flex;flex-direction:column;justify-content:center;gap:8px;padding:24px 28px;min-width:0}
+.ubicacion-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--orange);font-weight:600}
+.ubicacion-nombre{font-size:22px;font-weight:600;line-height:1.2}
+.ubicacion-direccion{font-size:14px;opacity:.55;font-weight:300;line-height:1.3}
+.ubicacion-cta{font-size:13px;font-weight:600;color:var(--orange);margin-top:6px}
+@media(max-width:560px){.ubicacion-card{flex-direction:column;height:auto}.ubicacion-map{width:100%;height:140px}.ubicacion-info{padding:18px 22px}}
+
 /* TICKETS */
 .tickets-title{font-family:'Bebas Neue',sans-serif;font-size:48px;letter-spacing:2px;margin-bottom:8px}
 .tickets-subtitle{font-size:14px;opacity:.4;font-weight:300;margin-bottom:32px}
@@ -325,9 +338,9 @@ footer{background:#080808;padding:80px 60px 40px;border-top:1px solid rgba(255,2
     <h2 class="evento-title">EL EVENTO.</h2>
     <div class="evento-meta">
       <div class="evento-meta-item"><span>Edades</span><span>Entre 20-35 años</span></div>
-      <div class="evento-meta-item"><span>Fecha</span><span>Por confirmar</span></div>
+      <div class="evento-meta-item"><span>Fecha</span><span>Viernes 10 de julio</span></div>
       <div class="evento-meta-item"><span>Hora</span><span>20:30h</span></div>
-      <div class="evento-meta-item"><span>Ciudad</span><span>Sevilla</span></div>
+      <div class="evento-meta-item"><span>Lugar</span><span>Bar Capitol, Sevilla</span></div>
       <div class="evento-meta-item"><span>Formato</span><span>Solo solteros/as</span></div>
     </div>
     <div class="evento-desc">
@@ -335,6 +348,19 @@ footer{background:#080808;padding:80px 60px 40px;border-top:1px solid rgba(255,2
       <p>Hemos creado un entorno donde no hay presión, no hay perfiles que juzgar ni conversaciones forzadas. Solo personas interesantes, dispuestas a conocer a otras personas interesantes. El ambiente hace el resto.</p>
       <p>Ven solo o con amigos. Da igual. Lo único que importa es que estés soltero/a y tengas ganas de vivir algo diferente.</p>
     </div>
+
+    <a href="https://share.google/ntWQm2AyPgeA1Rp1U" target="_blank" rel="noopener" class="ubicacion-card">
+      <div class="ubicacion-map">
+        <iframe src="https://maps.google.com/maps?q=Bar%20Capitol%20Plaza%20Nueva%2011%20Sevilla&t=&z=16&ie=UTF8&iwloc=&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="ubicacion-map-overlay"></div>
+      </div>
+      <div class="ubicacion-info">
+        <span class="ubicacion-label">CÓMO LLEGAR</span>
+        <span class="ubicacion-nombre">Bar Capitol</span>
+        <span class="ubicacion-direccion">Plaza Nueva, 11 · Sevilla</span>
+        <span class="ubicacion-cta">Abrir en Google Maps →</span>
+      </div>
+    </a>
 
     <div id="tickets">
       <h3 class="tickets-title">ELIGE TU TICKET.</h3>
@@ -509,7 +535,7 @@ footer{background:#080808;padding:80px 60px 40px;border-top:1px solid rgba(255,2
     <h2 class="faq-title">¿TIENES DUDAS?</h2>
     <div class="faq-item">
       <div class="faq-q"><span>¿Puedo ir solo/a?</span><span class="faq-icon">+</span></div>
-      <div class="faq-a">¡Por supuesto! Mucha gente viene sola. Es la mejor manera de abrirte a conocer personas nuevas. El ambiente hace que sea muy fácil romper el hielo.</div>
+      <div class="faq-a">¡Por supuesto! El 60% de la gente viene sola. Es la mejor manera de abrirte a conocer personas nuevas. El ambiente hace que sea muy fácil romper el hielo.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q"><span>¿Es cada semana?</span><span class="faq-icon">+</span></div>
@@ -699,7 +725,7 @@ document.getElementById('btnConfirmar').addEventListener('click', function() {
   fetch('https://api.emailjs.com/api/v1.0/email/send', {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({service_id:EMAILJS_SVC, template_id:EMAILJS_TPL, user_id:EMAILJS_KEY, template_params:{nombre:nombre, email:email, to_email:email, ticket:tipoNombre, precio:precio+'€', dia:'Próximamente — te avisaremos', hora:'20:30h', lugar:'Sevilla — lugar por confirmar'}})
+    body: JSON.stringify({service_id:EMAILJS_SVC, template_id:EMAILJS_TPL, user_id:EMAILJS_KEY, template_params:{nombre:nombre, email:email, to_email:email, ticket:tipoNombre, precio:precio+'€', dia:'Viernes 10 de julio', hora:'20:30h', lugar:'Bar Capitol, Plaza Nueva 11, Sevilla'}})
   }).catch(function(){});
 
   // Actualizar contador
