@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Real Face · Eventos para solteros en Sevilla</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
+<link rel="preload" as="image" href="img05-1703eb94e359.jpg">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root {
+    --black: #0a0a0a;
+    --white: #f5f0e8;
+    --cream: #f0ead8;
+    --orange: #ff4d00;
+    --yellow: #f5c842;
+    --dark: #1a1a1a;
+    --mid: #333;
+  }
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background:#0a0a0a;color:#fff;font-family:'Inter',sans-serif;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 48px;background:rgba(8,8,8,0.98);border-bottom:1px solid rgba(255,255,255,0.06)}
+.nav-brand{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:4px}
+.nav-brand span{color:var(--orange)}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;opacity:0.7;transition:opacity .2s}
+@media (hover:hover){.nav-links a:hover{opacity:1}}
+.nav-cta{background:var(--orange);color:#fff!important;opacity:1!important;padding:10px 22px;border-radius:4px}
+@media (hover:hover){.nav-cta:hover{background:#cc3d00}}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding:0 24px}
+.hero-slideshow{position:absolute;inset:0;z-index:0}
+.hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.4s ease}
+.hero-slide.active{opacity:0.6}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(10,10,10,0.5) 0%,rgba(10,10,10,0.3) 40%,rgba(10,10,10,0.9) 100%)}
+.hero-content{position:relative;z-index:2}
+.hero-eyebrow{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--orange);margin-bottom:24px}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(58px,10vw,140px);line-height:.88;letter-spacing:1px;margin-bottom:28px}
+.hero-title em{display:block;font-style:normal;color:var(--orange)}
+.hero-sub{font-size:16px;font-weight:300;opacity:.55;max-width:480px;margin:0 auto 40px;line-height:1.65}
+.hero-btn{display:inline-block;background:var(--orange);color:#fff;padding:16px 44px;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;border-radius:4px;transition:background .2s,transform .2s}
+@media (hover:hover){.hero-btn:hover{background:#cc3d00;transform:translateY(-2px)}}
+
+/* APPS SECTION */
+.section-apps{padding:120px 60px;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:center}
+.apps-headline{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,7vw,100px);line-height:.88;letter-spacing:1px;margin-bottom:40px}
+.tachado-wrap{display:inline-block;position:relative;white-space:nowrap}
+.tachado-wrap::after{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);height:6px;background:var(--orange);border-radius:3px;width:0;animation:tachar 1.2s ease forwards .8s}
+@keyframes tachar{0%{width:0}100%{width:100%}}
+.apps-reasons{list-style:none;display:flex;flex-direction:column;gap:16px;margin-bottom:40px}
+.apps-reasons li{display:flex;align-items:center;gap:14px;font-size:15px;font-weight:300;opacity:.65}
+.apps-reasons li::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--orange);flex-shrink:0}
+.btn-orange{display:inline-block;background:var(--orange);color:#fff;padding:14px 34px;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;border-radius:4px;transition:background .2s,transform .2s}
+@media (hover:hover){.btn-orange:hover{background:#cc3d00;transform:translateY(-2px)}}
+
+/* POLAROID FAN */
+.polaroid-fan{position:relative;width:420px;height:400px;flex-shrink:0}
+.fan-card{position:absolute;top:50%;left:50%;width:200px;background:#fff;padding:10px 10px 40px;box-shadow:0 12px 32px rgba(0,0,0,.4);cursor:pointer}
+@media (hover:hover){.fan-card:hover{z-index:10}}
+.fan-card img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block}
+
+/* EVENTO */
+.section-evento{padding:120px 60px;background:#0f0f0f}
+.evento-inner{max-width:1100px;margin:0 auto}
+.evento-label{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--orange);margin-bottom:16px}
+.evento-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(58px,9vw,130px);line-height:.85;letter-spacing:2px;margin-bottom:20px}
+.evento-meta{display:flex;gap:36px;flex-wrap:wrap;margin-bottom:60px;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);padding:24px 0}
+.evento-meta-item{display:flex;flex-direction:column;gap:4px}
+.evento-meta-item span:first-child{font-size:9px;letter-spacing:3px;text-transform:uppercase;opacity:.35}
+.evento-meta-item span:last-child{font-size:16px;font-weight:500}
+.evento-desc{font-size:16px;font-weight:300;line-height:1.8;opacity:.6;max-width:680px;margin-bottom:70px}
+.evento-desc p+p{margin-top:16px}
+
+/* UBICACION */
+.ubicacion-card{display:flex;align-items:stretch;gap:0;max-width:680px;height:170px;margin-bottom:60px;background:#161616;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.08);transition:border-color .2s,transform .2s}
+@media (hover:hover){.ubicacion-card:hover{border-color:rgba(255,77,0,.5);transform:translateY(-2px)}}
+.ubicacion-map{position:relative;width:220px;flex-shrink:0;height:100%}
+.ubicacion-map iframe{width:100%;height:100%;border:0;display:block;pointer-events:none}
+.ubicacion-map-overlay{position:absolute;inset:0}
+.ubicacion-info{flex:1;display:flex;flex-direction:column;justify-content:center;gap:8px;padding:24px 28px;min-width:0}
+.ubicacion-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--orange);font-weight:600}
+.ubicacion-nombre{font-size:22px;font-weight:600;line-height:1.2}
+.ubicacion-direccion{font-size:14px;opacity:.55;font-weight:300;line-height:1.3}
+.ubicacion-cta{font-size:13px;font-weight:600;color:var(--orange);margin-top:6px}
+@media(max-width:560px){.ubicacion-card{flex-direction:column;height:auto}.ubicacion-map{width:100%;height:140px}.ubicacion-info{padding:18px 22px}}
+
+/* TICKETS */
+.tickets-title{font-family:'Bebas Neue',sans-serif;font-size:48px;letter-spacing:2px;margin-bottom:8px}
+.tickets-subtitle{font-size:14px;opacity:.4;font-weight:300;margin-bottom:32px}
+.tickets-box{max-width:560px;background:#fff;border-radius:16px;padding:28px;color:#111}
+.tickets-box-label{font-size:13px;color:var(--orange);font-weight:600;margin-bottom:6px}
+.tickets-box-intro{font-size:15px;font-weight:500;margin-bottom:24px;line-height:1.5}
+.ticket-row{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-radius:10px;border:1.5px solid #e8e8e8;margin-bottom:10px;cursor:pointer;transition:border-color .2s,box-shadow .2s;gap:12px;user-select:none}
+@media (hover:hover){.ticket-row:hover:not(.agotado){border-color:#bbb;box-shadow:0 2px 12px rgba(0,0,0,.08)}}
+.ticket-row.selected{border-color:#111;box-shadow:0 0 0 2px #111}
+.ticket-row.agotado{opacity:.4;cursor:not-allowed;background:#f9f9f9}
+.ticket-row-left{display:flex;align-items:center;gap:14px;flex:1}
+.ticket-radio{width:22px;height:22px;border-radius:50%;border:2px solid #ccc;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s}
+.ticket-row.selected .ticket-radio{background:#111;border-color:#111}
+.radio-dot{width:10px;height:10px;border-radius:50%;background:#fff;display:none}
+.ticket-row.selected .radio-dot{display:block}
+.ticket-row-info{display:flex;flex-direction:column;gap:4px}
+.ticket-name{font-size:15px;font-weight:500;color:#111}
+.ticket-row.agotado .ticket-name{color:#999}
+.ticket-badges{display:flex;gap:6px;flex-wrap:wrap}
+.badge{font-size:11px;font-weight:500;padding:2px 8px;border-radius:20px}
+.badge-green{background:#dcfce7;color:#16a34a;border:1px solid #bbf7d0}
+.badge-gray{background:#f0f0f0;color:#888}
+.badge-red{background:#f0f0f0;color:#999}
+.ticket-price{font-size:16px;font-weight:600;color:#111;white-space:nowrap;flex-shrink:0}
+.ticket-desc{font-size:11px;color:#888;font-weight:300;line-height:1.4;margin-top:2px}
+.ticket-row.agotado .ticket-price{color:#aaa}
+.comprar-btn{width:100%;margin-top:20px;padding:16px;background:#ccc;color:#fff;border:none;font-size:15px;font-weight:600;border-radius:10px;cursor:not-allowed;font-family:'Inter',sans-serif;transition:background .2s;letter-spacing:.3px}
+.comprar-btn.activo{background:var(--orange);cursor:pointer}
+@media (hover:hover){.comprar-btn.activo:hover{background:#cc3d00}}
+.tickets-note{font-size:12px;opacity:.35;margin-top:14px;font-weight:300;line-height:1.6}
+
+/* FOTO STRIPS */
+.foto-strips-section{background:#0a0a0a;padding:80px 0;overflow:hidden;display:flex;flex-direction:column;gap:12px}
+.foto-strip-wrap{overflow:hidden;width:100%}
+.foto-strip{display:flex;gap:12px;width:max-content}
+.foto-item{width:260px;height:320px;object-fit:cover;border-radius:6px;flex-shrink:0;background-color:#1a1a1a}
+.strip-left{animation:scrollLeft 28s linear infinite}
+.strip-right{animation:scrollRight 28s linear infinite}
+@keyframes scrollLeft{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes scrollRight{0%{transform:translateX(-50%)}100%{transform:translateX(0)}}
+@media (hover:hover){.foto-strip-wrap:hover .foto-strip{animation-play-state:paused}}
+
+/* RESENAS */
+.section-resenas{padding:120px 60px;background:#f5f0e8;color:#111}
+.resenas-inner{max-width:1200px;margin:0 auto}
+.resenas-label{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--orange);margin-bottom:16px}
+.resenas-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,7vw,100px);line-height:.85;letter-spacing:1px;margin-bottom:60px}
+.resenas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.resena-card{background:#fff;padding:44px 36px}
+.resena-stars{color:var(--orange);font-size:14px;margin-bottom:16px}
+.resena-tag{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--orange);font-weight:600;margin-bottom:14px}
+.resena-body{font-size:18px;line-height:1.55;font-weight:300;margin-bottom:24px;color:#222;font-style:italic}
+.resena-author{font-size:12px;opacity:.4;font-weight:500}
+
+/* FAQ */
+.section-faq{padding:120px 60px;background:#0f0f0f}
+.faq-inner{max-width:780px;margin:0 auto}
+.faq-label{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--orange);margin-bottom:16px;text-align:center}
+.faq-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,7vw,90px);line-height:.85;letter-spacing:1px;margin-bottom:60px;text-align:center}
+.faq-item{border-bottom:1px solid rgba(255,255,255,.07)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:26px 0;cursor:pointer;font-size:15px;font-weight:500}
+.faq-icon{width:30px;height:30px;border:1.5px solid rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:20px;transition:transform .3s,background .2s,border-color .2s}
+.faq-item.open .faq-icon{transform:rotate(45deg);background:var(--orange);border-color:var(--orange)}
+.faq-a{font-size:14px;opacity:.5;font-weight:300;line-height:1.75;max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s}
+.faq-item.open .faq-a{max-height:300px;padding-bottom:26px}
+
+/* MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.94);align-items:center;justify-content:center}
+.modal-overlay.open{display:flex}
+.modal{background:#1a1a1a;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:44px 36px;max-width:440px;width:90%;position:relative;max-height:90vh;overflow-y:auto}
+.modal-close{position:absolute;top:14px;right:18px;font-size:22px;cursor:pointer;opacity:.4;background:none;border:none;color:#fff;line-height:1}
+@media (hover:hover){.modal-close:hover{opacity:1}}
+.modal-titulo{font-family:'Bebas Neue',sans-serif;font-size:38px;letter-spacing:2px;margin-bottom:6px}
+.modal-sub{font-size:13px;opacity:.45;margin-bottom:24px;line-height:1.6;font-weight:300}
+.modal-resumen{background:#111;border-radius:8px;padding:18px;margin-bottom:24px;display:flex;justify-content:space-between;align-items:center}
+.modal-resumen-label{font-size:9px;letter-spacing:2px;text-transform:uppercase;opacity:.4;display:block;margin-bottom:4px}
+.modal-resumen-nombre{font-size:16px;font-weight:600}
+.modal-resumen-precio{font-family:'Bebas Neue',sans-serif;font-size:44px;color:var(--orange)}
+.modal-input{width:100%;padding:13px 16px;border-radius:8px;border:1.5px solid #333;background:#111;color:#fff;font-size:14px;font-family:'Inter',sans-serif;outline:none;margin-bottom:12px;transition:border-color .2s}
+.modal-input:focus{border-color:var(--orange)}
+.modal-input::placeholder{opacity:.35}
+.modal-error{color:var(--orange);font-size:12px;margin-bottom:12px;display:none}
+.modal-btn{display:block;width:100%;padding:15px;background:var(--orange);color:#fff;border:none;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border-radius:8px;cursor:pointer;text-align:center;font-family:'Inter',sans-serif;transition:background .2s;margin-bottom:10px}
+@media (hover:hover){.modal-btn:hover{background:#cc3d00}}
+.modal-btn-green{background:#16a34a}
+@media (hover:hover){.modal-btn-green:hover{background:#15803d}}
+.modal-step{display:none}
+.modal-step.active{display:block}
+
+/* MÉTODOS DE PAGO */
+.pago-metodos{display:flex;flex-direction:column;gap:12px}
+.pago-metodo{display:flex;align-items:center;gap:16px;width:100%;padding:20px;background:#111;border:1.5px solid #2a2a2a;border-radius:10px;cursor:pointer;transition:border-color .2s,background .2s;text-align:left;font-family:'Inter',sans-serif}
+@media (hover:hover){.pago-metodo:hover{border-color:var(--orange);background:#161616}}
+.pago-metodo-icon{font-size:26px;flex-shrink:0}
+.pago-metodo-texto{flex:1}
+.pago-metodo-titulo{font-size:15px;font-weight:600;color:#fff;margin-bottom:2px}
+.pago-metodo-sub{font-size:12px;opacity:.45;font-weight:300;color:#fff}
+.pago-metodo-flecha{font-size:18px;opacity:.3;flex-shrink:0}
+.pago-volver{display:inline-block;font-size:12px;opacity:.45;cursor:pointer;margin-bottom:18px;font-weight:500}
+@media (hover:hover){.pago-volver:hover{opacity:.8}}
+.pago-info-box{background:#111;border:1px solid #2a2a2a;border-radius:8px;padding:16px;font-size:13px;line-height:1.6;color:#ccc;font-weight:300;margin-bottom:20px}
+.bizum-datos{background:#111;border-radius:8px;padding:20px;margin-bottom:16px}
+.bizum-linea{padding:10px 0;border-bottom:1px solid rgba(255,255,255,.06);white-space:nowrap;overflow-x:auto;display:flex;align-items:baseline;gap:8px}
+.bizum-linea:last-child{border-bottom:none}
+.bizum-fila-label{font-size:11px;letter-spacing:1px;text-transform:uppercase;opacity:.4}
+.bizum-fila-valor{font-size:16px;font-weight:600;color:#fff}
+.bizum-fila-valor.orange{color:var(--orange);font-family:'Bebas Neue',sans-serif;font-size:22px}
+.bizum-nota{font-size:12px;opacity:.5;font-weight:300;line-height:1.6;margin-bottom:20px}
+.bizum-confirmacion{font-size:13px;opacity:.55;font-weight:300;line-height:1.6;text-align:center;margin-bottom:18px}
+.modal-success{text-align:center;padding:20px 0}
+.modal-success-icon{font-size:52px;margin-bottom:16px}
+.modal-success-title{font-family:'Bebas Neue',sans-serif;font-size:34px;letter-spacing:2px;margin-bottom:12px}
+.modal-success-text{font-size:14px;opacity:.55;line-height:1.6;font-weight:300}
+
+/* FOOTER */
+footer{background:#080808;padding:80px 60px 40px;border-top:1px solid rgba(255,255,255,.05)}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.5fr;gap:60px;margin-bottom:60px}
+.footer-brand{font-family:'Bebas Neue',sans-serif;font-size:40px;letter-spacing:4px;margin-bottom:14px}
+.footer-brand span{color:var(--orange)}
+.footer-tagline{font-size:13px;opacity:.3;font-weight:300;line-height:1.6}
+.footer-col-title{font-size:9px;letter-spacing:3px;text-transform:uppercase;opacity:.3;margin-bottom:18px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:12px}
+.footer-links a{font-size:14px;opacity:.5;transition:opacity .2s}
+@media (hover:hover){.footer-links a:hover{opacity:1}}
+.newsletter-form{display:flex;margin-top:14px}
+.newsletter-input{flex:1;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#fff;padding:12px 14px;font-size:13px;border-radius:4px 0 0 4px;outline:none;font-family:'Inter',sans-serif}
+.newsletter-input::placeholder{opacity:.3}
+.newsletter-btn{background:var(--orange);color:#fff;border:none;cursor:pointer;padding:12px 18px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;border-radius:0 4px 4px 0;font-family:'Inter',sans-serif}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;border-top:1px solid rgba(255,255,255,.05);padding-top:28px;font-size:11px;opacity:.2}
+.footer-legal{display:flex;gap:20px}
+
+@media(max-width:900px){
+  nav{padding:14px 20px}
+  .nav-links{display:none}
+  .section-apps{grid-template-columns:1fr;gap:60px;padding:80px 24px}
+  .polaroid-fan{width:300px;height:320px;margin:0 auto}
+  .section-evento{padding:80px 24px}
+  
+  .section-resenas{padding:80px 24px}
+  .resenas-grid{grid-template-columns:1fr}
+  .section-faq{padding:80px 24px}
+  footer{padding:60px 24px 30px}
+  .footer-top{grid-template-columns:1fr 1fr;gap:36px}
+}
+
+</style>
+
+</head>
+<body>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalPago">
+  <div class="modal">
+    <button class="modal-close" id="btnCerrar">✕</button>
+    <h2 class="modal-titulo" id="modalTitulo">EARLY BIRD</h2>
+    <p class="modal-sub">Rellena tus datos y completa el pago. Una vez recibido tu pago, recibirás un email de confirmación en un plazo máximo de 8 horas.</p>
+    <div class="modal-resumen">
+      <div>
+        <span class="modal-resumen-label">Tu ticket</span>
+        <span class="modal-resumen-nombre" id="modalDetalle">Early Bird Mujer</span>
+      </div>
+      <div class="modal-resumen-precio" id="modalPrecio">€10</div>
+    </div>
+
+    <!-- PASO 1: datos -->
+    <div class="modal-step active" id="paso1">
+      <input class="modal-input" id="inputNombre" type="text" placeholder="Tu nombre completo">
+      <input class="modal-input" id="inputEmail" type="email" placeholder="Tu email — recibirás confirmación aquí">
+      <input class="modal-input" id="inputEdad" type="number" inputmode="numeric" min="18" max="99" step="1" placeholder="Edad">
+      <p class="modal-error" id="modalError">Por favor rellena todos los campos correctamente.</p>
+      <button class="modal-btn" id="btnPaso2">CONTINUAR AL PAGO →</button>
+    </div>
+
+    <!-- PASO 2: elegir método de pago -->
+    <div class="modal-step" id="paso2">
+      <div class="pago-metodos">
+        <button type="button" class="pago-metodo" id="btnMetodoTarjeta">
+          <span class="pago-metodo-icon">💳</span>
+          <span class="pago-metodo-texto">
+            <span class="pago-metodo-titulo">Pagar con tarjeta</span>
+            <span class="pago-metodo-sub">Pago seguro</span>
+          </span>
+          <span class="pago-metodo-flecha">→</span>
+        </button>
+        <button type="button" class="pago-metodo" id="btnMetodoBizum">
+          <span class="pago-metodo-icon">📱</span>
+          <span class="pago-metodo-texto">
+            <span class="pago-metodo-titulo">Pagar con Bizum</span>
+            <span class="pago-metodo-sub" style="color:#fff">Envía el pago directamente desde tu banco</span>
+          </span>
+          <span class="pago-metodo-flecha">→</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- PASO 2A: pago con tarjeta -->
+    <div class="modal-step" id="paso2Tarjeta">
+      <span class="pago-volver" id="btnVolverTarjeta">← Elegir otro método</span>
+      <div class="pago-info-box">Serás redirigido a la página de pago de Revolut donde podrás pagar con cualquier tarjeta.<br><br>No necesitas tener una cuenta de Revolut.<br>En el campo de nota escribe tu nombre completo para que podamos identificar tu pago.</div>
+      <a class="modal-btn" id="revolut-link" href="#" target="_blank">CONTINUAR AL PAGO →</a>
+      <button class="modal-btn modal-btn-green" id="btnConfirmar" style="display:none">✅ YA HE PAGADO — CONFIRMAR</button>
+    </div>
+
+    <!-- PASO 2B: pago con Bizum -->
+    <div class="modal-step" id="paso2Bizum">
+      <span class="pago-volver" id="btnVolverBizum">← Elegir otro método</span>
+      <h3 class="modal-titulo" style="font-size:26px;margin-bottom:14px">Pagar mediante Bizum</h3>
+      <p style="font-size:13px;opacity:.6;font-weight:300;margin-bottom:16px">Realiza un Bizum con los siguientes datos:</p>
+      <div class="bizum-datos">
+        <p class="bizum-linea"><span class="bizum-fila-label">Número de teléfono:</span> <span class="bizum-fila-valor">633419969</span></p>
+        <p class="bizum-linea"><span class="bizum-fila-label">Beneficiario:</span> <span class="bizum-fila-valor">Diana</span></p>
+        <p class="bizum-linea"><span class="bizum-fila-label">Importe:</span> <span class="bizum-fila-valor orange" id="bizumImporte">10 €</span></p>
+        <p class="bizum-linea"><span class="bizum-fila-label">Concepto:</span> <span class="bizum-fila-valor">Nombre y Apellidos</span></p>
+      </div>
+      <p class="bizum-nota">Es importante escribir tu nombre y apellidos en el concepto para poder identificar correctamente tu pago.</p>
+      <p class="bizum-confirmacion">Una vez recibido el pago, recibirás un email de confirmación en un plazo máximo de 8 horas.</p>
+      <button class="modal-btn modal-btn-green" id="btnConfirmarBizum">✅ YA HE HECHO EL BIZUM — CONFIRMAR</button>
+    </div>
+
+    <!-- PASO 3: éxito -->
+    <div class="modal-step" id="paso3">
+      <div class="modal-success">
+        <div class="modal-success-icon">🎉</div>
+        <h3 class="modal-success-title">¡PLAZA CONFIRMADA!</h3>
+        <p class="modal-success-text">Te hemos enviado un email con toda la información del evento. ¡Nos vemos pronto en Sevilla!</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">REAL<span>FACE</span></div>
+  <div class="nav-links">
+    <a href="#evento">El Evento</a>
+    <a href="#tickets">Tickets</a>
+    <a href="#faq">FAQ</a>
+    <a href="#evento" class="nav-cta">CONSIGUE TU TICKET</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-slideshow">
+    <div class="hero-slide active" style="background-image:url('img05-1703eb94e359.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('img06-1f1135904c14.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('img07-f3f137ae4cdc.jpg')"></div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Sevilla · Eventos para solteros</p>
+    <h1 class="hero-title">Adiós a las apps.<br><em>Conoce personas interesantes</em><br>en la vida real.</h1>
+    <p class="hero-sub">Real Face es el primer evento exclusivo para solteros en Sevilla. Sin perfiles, sin matches — solo conexiones reales.</p>
+    <a href="#evento" class="hero-btn">CONSIGUE TU TICKET</a>
+  </div>
+</section>
+
+<!-- APPS NO FUNCIONAN -->
+<section style="background:#0a0a0a;padding:120px 0">
+  <div class="section-apps">
+    <div class="apps-text">
+      <h2 class="apps-headline">Las apps de conocer personas<br><span class="tachado-wrap">no funcionan.</span></h2>
+      <ul class="apps-reasons">
+        <li>Conversaciones vacías que no llevan a nada</li>
+        <li>Swipe infinito sin conexión real</li>
+        <li>Falta de contacto social auténtico</li>
+      </ul>
+      <a href="#tickets" class="btn-orange">ÚNETE AL MOVIMIENTO</a>
+    </div>
+    <div class="polaroid-fan" id="polaroidFan">
+      <div class="fan-card" style="transform:translate(-50%,-50%) rotate(-18deg) translate(-155px,30px)">
+        <img src="img01-d9cdfc2bbdec.jpg" alt="" loading="lazy" decoding="async">
+      </div>
+      <div class="fan-card" style="transform:translate(-50%,-50%) rotate(-6deg) translate(-52px,-10px)">
+        <img src="img02-75cc60ea2ddf.jpg" alt="" loading="lazy" decoding="async">
+      </div>
+      <div class="fan-card" style="transform:translate(-50%,-50%) rotate(6deg) translate(52px,-10px)">
+        <img src="img03-87f4a2056eb2.jpg" alt="" loading="lazy" decoding="async">
+      </div>
+      <div class="fan-card" style="transform:translate(-50%,-50%) rotate(18deg) translate(155px,30px)">
+        <img src="img08-28606cb719b3.jpg" alt="" loading="lazy" decoding="async">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTO + TICKETS -->
+<section class="section-evento" id="evento">
+  <div class="evento-inner">
+    <p class="evento-label">REAL FACE · SEVILLA</p>
+    <h2 class="evento-title">EL EVENTO.</h2>
+    <div class="evento-meta">
+      <div class="evento-meta-item"><span>Edades</span><span>Entre 20-35 años</span></div>
+      <div class="evento-meta-item"><span>Fecha</span><span>Viernes 10 de julio</span></div>
+      <div class="evento-meta-item"><span>Hora</span><span>20:30h</span></div>
+      <div class="evento-meta-item"><span>Lugar</span><span>Bar Capitol, Sevilla</span></div>
+      <div class="evento-meta-item"><span>Formato</span><span>Solo solteros/as</span></div>
+    </div>
+    <div class="evento-desc">
+      <p>Real Face nace de una idea simple: las mejores conexiones ocurren en persona. No en una pantalla, no con un algoritmo de por medio — sino mirándose a los ojos, compartiendo un espacio, dejándose llevar por la energía del momento.</p>
+      <p>Hemos creado un entorno donde no hay presión, no hay perfiles que juzgar ni conversaciones forzadas. Solo personas interesantes, dispuestas a conocer a otras personas interesantes. El ambiente hace el resto.</p>
+      <p>Ven solo o con amigos. Da igual. Lo único que importa es que estés soltero/a y tengas ganas de vivir algo diferente.</p>
+    </div>
+
+    <a href="https://share.google/ntWQm2AyPgeA1Rp1U" target="_blank" rel="noopener" class="ubicacion-card">
+      <div class="ubicacion-map">
+        <iframe src="https://maps.google.com/maps?q=Bar%20Capitol%20Plaza%20Nueva%2011%20Sevilla&t=&z=16&ie=UTF8&iwloc=&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="ubicacion-map-overlay"></div>
+      </div>
+      <div class="ubicacion-info">
+        <span class="ubicacion-label">CÓMO LLEGAR</span>
+        <span class="ubicacion-nombre">Bar Capitol</span>
+        <span class="ubicacion-direccion">Plaza Nueva, 11 · Sevilla</span>
+        <span class="ubicacion-cta">Abrir en Google Maps →</span>
+      </div>
+    </a>
+
+    <div id="tickets">
+      <h3 class="tickets-title">ELIGE TU TICKET.</h3>
+      
+      <div class="tickets-box">
+        <p class="tickets-box-label">Comprar entrada</p>
+        <p class="tickets-box-intro">¡Hola! Por favor, elige el tipo de entrada que deseas:</p>
+
+        <!-- ANTICIPADA MUJER — siempre agotado -->
+        <div class="ticket-row agotado" id="row-ant-mujer">
+          <div class="ticket-row-left">
+            <div class="ticket-radio"><div class="radio-dot"></div></div>
+            <div class="ticket-row-info">
+              <span class="ticket-name">Entrada Anticipada Mujer</span>
+              <span class="ticket-desc">🍹 Una bebida incluida · Acceso con precio reducido para primeras plazas</span>
+              <div class="ticket-badges"><span class="badge badge-red">Agotado</span></div>
+            </div>
+          </div>
+          <span class="ticket-price">8,00 €</span>
+        </div>
+
+        <!-- ANTICIPADA HOMBRE — siempre agotado -->
+        <div class="ticket-row agotado" id="row-ant-hombre">
+          <div class="ticket-row-left">
+            <div class="ticket-radio"><div class="radio-dot"></div></div>
+            <div class="ticket-row-info">
+              <span class="ticket-name">Entrada Anticipada Hombre</span>
+              <span class="ticket-desc">🍹 Una bebida incluida · Acceso con precio reducido para primeras plazas</span>
+              <div class="ticket-badges"><span class="badge badge-red">Agotado</span></div>
+            </div>
+          </div>
+          <span class="ticket-price">8,00 €</span>
+        </div>
+
+        <!-- GENERAL MUJER -->
+        <div class="ticket-row" id="row-gen-mujer">
+          <div class="ticket-row-left">
+            <div class="ticket-radio"><div class="radio-dot"></div></div>
+            <div class="ticket-row-info">
+              <span class="ticket-name">Entrada General Mujer</span>
+              <span class="ticket-desc">🍹 Una bebida incluida · Acceso estándar al evento</span>
+              <div class="ticket-badges"><span class="badge badge-green" id="badge-gen-mujer">Disponible</span></div>
+            </div>
+          </div>
+          <span class="ticket-price">10,00 €</span>
+        </div>
+
+        <!-- GENERAL HOMBRE -->
+        <div class="ticket-row" id="row-gen-hombre">
+          <div class="ticket-row-left">
+            <div class="ticket-radio"><div class="radio-dot"></div></div>
+            <div class="ticket-row-info">
+              <span class="ticket-name">Entrada General Hombre</span>
+              <span class="ticket-desc">🍹 Una bebida incluida · Acceso estándar al evento</span>
+              <div class="ticket-badges"><span class="badge badge-green" id="badge-gen-hombre">Disponible</span></div>
+            </div>
+          </div>
+          <span class="ticket-price">10,00 €</span>
+        </div>
+
+        <!-- ULTIMAS MUJER -->
+        <div class="ticket-row agotado" id="row-ult-mujer">
+          <div class="ticket-row-left">
+            <div class="ticket-radio"><div class="radio-dot"></div></div>
+            <div class="ticket-row-info">
+              <span class="ticket-name">Últimas Entradas Mujer</span>
+              <span class="ticket-desc">🍹 Una bebida incluida · Últimas plazas disponibles</span>
+              <div class="ticket-badges"><span class="badge badge-gray" id="badge-ult-mujer">Disponible cuando se agote General</span></div>
+            </div>
+          </div>
+          <span class="ticket-price">15,00 €</span>
+        </div>
+
+        <!-- ULTIMAS HOMBRE -->
+        <div class="ticket-row agotado" id="row-ult-hombre">
+          <div class="ticket-row-left">
+            <div class="ticket-radio"><div class="radio-dot"></div></div>
+            <div class="ticket-row-info">
+              <span class="ticket-name">Últimas Entradas Hombre</span>
+              <span class="ticket-desc">🍹 Una bebida incluida · Últimas plazas disponibles</span>
+              <div class="ticket-badges"><span class="badge badge-gray" id="badge-ult-hombre">Disponible cuando se agote General</span></div>
+            </div>
+          </div>
+          <span class="ticket-price">15,00 €</span>
+        </div>
+
+        <button class="comprar-btn" id="btnComprar">Selecciona una entrada arriba</button>
+        <p class="tickets-note">El pago se realiza online. Una vez recibido tu pago, recibirás un email de confirmación en un plazo máximo de 8 horas con todos los detalles del evento.</p>
+      </div>
+    </div>
+  </div>
+
+
+
+<!-- FOTO STRIPS -->
+<div class="foto-strips-section">
+  <!-- Fila 1: va hacia la izquierda -->
+  <div class="foto-strip-wrap">
+    <div class="foto-strip strip-left">
+      <img class="foto-item" src="img09-98582f327fa9.jpg" alt="" loading="lazy" decoding="async">
+      <img class="foto-item" src="img10-2df2d1158912.jpg" alt="" loading="lazy" decoding="async">
+      <img class="foto-item" src="img11-d8c6d3569349.jpg" alt="" loading="lazy" decoding="async">
+      <img class="foto-item" src="img12-ff18b8bcdda8.jpg" alt="" loading="lazy" decoding="async">
+      <img class="foto-item" src="img13-78cb6f1cff00.jpg" alt="" loading="lazy" decoding="async">
+      <img class="foto-item" src="img14-008c1b7a1c95.jpg" alt="" loading="lazy" decoding="async">
+      <img class="foto-item" src="img15-06dcb057823e.jpg" alt="" loading="lazy" decoding="async">
+      <!-- Duplicado para loop infinito -->
+      <img class="foto-item" src="img09-98582f327fa9.jpg" alt="" loading="lazy" decoding="async">
+      <img class="foto-item" src="img10-2df2d1158912.jpg" alt="" loading="lazy" decoding="async">
+      <img class="foto-item" src="img11-d8c6d3569349.jpg" alt="" loading="lazy" decoding="async">
+      <img class="foto-item" src="img12-ff18b8bcdda8.jpg" alt="" loading="lazy" decoding="async">
+      <img class="foto-item" src="img13-78cb6f1cff00.jpg" alt="" loading="lazy" decoding="async">
+      <img class="foto-item" src="img14-008c1b7a1c95.jpg" alt="" loading="lazy" decoding="async">
+      <img class="foto-item" src="img15-06dcb057823e.jpg" alt="" loading="lazy" decoding="async">
+    </div>
+  </div>
+  <!-- Fila 2: va hacia la derecha (mismas fotos en orden inverso) -->
+  <div class="foto-strip-wrap">
+    <div class="foto-strip strip-right">
+      <img class="foto-item" src="img15-06dcb057823e.jpg" alt="" loading="lazy" decoding="async">
+      <img class="foto-item" src="img14-008c1b7a1c95.jpg" alt="" loading="lazy" decoding="async">
+      <img class="foto-item" src="img13-78cb6f1cff00.jpg" alt="" loading="lazy" decoding="async">
+      <img class="foto-item" src="img12-ff18b8bcdda8.jpg" alt="" loading="lazy" decoding="async">
+      <img class="foto-item" src="img11-d8c6d3569349.jpg" alt="" loading="lazy" decoding="async">
+      <img class="foto-item" src="img10-2df2d1158912.jpg" alt="" loading="lazy" decoding="async">
+      <img class="foto-item" src="img09-98582f327fa9.jpg" alt="" loading="lazy" decoding="async">
+      <!-- Duplicado para loop infinito -->
+      <img class="foto-item" src="img15-06dcb057823e.jpg" alt="" loading="lazy" decoding="async">
+      <img class="foto-item" src="img14-008c1b7a1c95.jpg" alt="" loading="lazy" decoding="async">
+      <img class="foto-item" src="img13-78cb6f1cff00.jpg" alt="" loading="lazy" decoding="async">
+      <img class="foto-item" src="img12-ff18b8bcdda8.jpg" alt="" loading="lazy" decoding="async">
+      <img class="foto-item" src="img11-d8c6d3569349.jpg" alt="" loading="lazy" decoding="async">
+      <img class="foto-item" src="img10-2df2d1158912.jpg" alt="" loading="lazy" decoding="async">
+      <img class="foto-item" src="img09-98582f327fa9.jpg" alt="" loading="lazy" decoding="async">
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- RESEÑAS -->
+<section class="section-resenas">
+  <div class="resenas-inner">
+    <p class="resenas-label">LO QUE DICEN</p>
+    <h2 class="resenas-title">"GRACIAS,<br>REAL FACE."</h2>
+    <div class="resenas-grid">
+      <div class="resena-card">
+        <div class="resena-stars">★★★★★</div>
+        <p class="resena-tag">"Ojalá hubiera algo así antes"</p>
+        <p class="resena-body">Fui sola, sin conocer a nadie, y me lo pasé increíble. La gente tiene ganas de hablar de verdad, no de fingir. Lo recomiendo a todo el mundo.</p>
+        <p class="resena-author">Carmen R., 27 · Sevilla</p>
+      </div>
+      <div class="resena-card">
+        <div class="resena-stars">★★★★★</div>
+        <p class="resena-tag">"Lo mejor que hice en meses"</p>
+        <p class="resena-body">Estaba harto de las apps y de conversaciones que no llevan a ningún lado. Esto es diferente. Conocí a personas con las que sigo hablando hoy.</p>
+        <p class="resena-author">Pablo M., 31 · Sevilla</p>
+      </div>
+      <div class="resena-card">
+        <div class="resena-stars">★★★★★</div>
+        <p class="resena-tag">"Una noche que no esperaba"</p>
+        <p class="resena-body">El ambiente es muy bueno, nada forzado. No es speed dating ni nada raro — simplemente gente guay en un sitio guay. Ya estoy esperando el próximo.</p>
+        <p class="resena-author">Lucía T., 29 · Sevilla</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section-faq" id="faq">
+  <div class="faq-inner">
+    <p class="faq-label">PREGUNTAS FRECUENTES</p>
+    <h2 class="faq-title">¿TIENES DUDAS?</h2>
+    <div class="faq-item">
+      <div class="faq-q"><span>¿Puedo ir solo/a?</span><span class="faq-icon">+</span></div>
+      <div class="faq-a">¡Por supuesto! El 60% de la gente viene sola. Es la mejor manera de abrirte a conocer personas nuevas. El ambiente hace que sea muy fácil romper el hielo.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span>¿Es cada semana?</span><span class="faq-icon">+</span></div>
+      <div class="faq-a">De momento empezamos con eventos puntuales y, dependiendo de la respuesta, iremos aumentando la frecuencia. Síguenos en Instagram para no perderte nada.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span>¿Tengo que ser soltero/a para asistir?</span><span class="faq-icon">+</span></div>
+      <div class="faq-a">Sí, es un requisito. Real Face es un espacio exclusivo para personas solteras. Así todo el mundo llega con la misma energía y las mismas ganas de conectar.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span>¿Cómo funciona el pago y la confirmación?</span><span class="faq-icon">+</span></div>
+      <div class="faq-a">El pago se realiza online. Una vez completado, recibirás automáticamente un email de confirmación con toda la información del evento: lugar, hora y día.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span>¿Qué tipo de evento es?</span><span class="faq-icon">+</span></div>
+      <div class="faq-a">Una velada en un espacio seleccionado de Sevilla, con buena música y ambiente cuidado. Sin speed dating, sin juegos forzados. Solo personas solteras en un entorno pensado para conectar.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">REAL<span>FACE</span></div>
+        <p class="footer-tagline">Adiós a las apps.<br>Conoce personas en la vida real.</p>
+      </div>
+      <div>
+        <p class="footer-col-title">Navegación</p>
+        <ul class="footer-links">
+          <li><a href="#evento">El Evento</a></li>
+          <li><a href="#tickets">Tickets</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+
+
+    </div>
+    <div class="footer-bottom">
+      <span>Real Face · Sevilla · 2026</span>
+      <div class="footer-legal">
+        <a href="#">Aviso legal</a>
+        <a href="#">Privacidad</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+var REVOLUT_GEN = 'https://revolut.me/dianasans?currency=EUR&amount=10&note=Entrada%20General%20RealFace%20(A%C3%91ADE%20TU%20NOMBRE%20Y%20APELLIDOS%20AQU%C3%8D)';
+var REVOLUT_ULT = 'https://revolut.me/dianasans?currency=EUR&amount=15&note=Ultimas%20Entradas%20RealFace%20(A%C3%91ADE%20TU%20NOMBRE%20Y%20APELLIDOS%20AQU%C3%8D)';
+var SUPABASE_URL = 'https://pogtutbcoppsamxwgpsr.supabase.co';
+var SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBvZ3R1dGJjb3Bwc2FteHdncHNyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEwMzIwODksImV4cCI6MjA5NjYwODA4OX0.KKfESgw5uPdfN4uYWV4lK9jnpLDA_Gbs8RfaOJbdhZ0';
+var EMAILJS_SVC  = 'service_imq39yh';
+var EMAILJS_TPL  = 'template_xn3sjo3';
+var EMAILJS_KEY  = '4OR4Gg8hIaWlltBU7';
+var LIMITE = 10;
+
+var ticketActual = null;
+var contadores = {'gen-mujer':0,'gen-hombre':0,'ult-mujer':0,'ult-hombre':0};
+
+function cargarContadores() {
+  fetch(SUPABASE_URL + '/rest/v1/reservas_realface?select=ticket_tipo,genero', {
+    headers: {'apikey': SUPABASE_KEY, 'Authorization': 'Bearer ' + SUPABASE_KEY}
+  })
+  .then(function(r){ return r.ok ? r.json() : []; })
+  .catch(function(){ return []; })
+  .then(function(data) {
+    contadores = {'gen-mujer':0,'gen-hombre':0,'ult-mujer':0,'ult-hombre':0};
+    data.forEach(function(r) {
+      var k = r.ticket_tipo + '-' + r.genero;
+      if (contadores[k] !== undefined) contadores[k]++;
+    });
+    actualizarUI();
+  });
+}
+
+function actualizarUI() {
+  ['mujer','hombre'].forEach(function(g) {
+    var genVendidos = contadores['gen-'+g] || 0;
+    var rowGen  = document.getElementById('row-gen-'+g);
+    var rowUlt  = document.getElementById('row-ult-'+g);
+    var badgeGen = document.getElementById('badge-gen-'+g);
+    var badgeUlt = document.getElementById('badge-ult-'+g);
+    if (!rowGen) return;
+
+    if (genVendidos >= LIMITE) {
+      // General agotado para este género → activar Últimas
+      rowGen.classList.add('agotado');
+      badgeGen.textContent = 'Agotado'; badgeGen.className = 'badge badge-red';
+      rowUlt.classList.remove('agotado');
+      badgeUlt.textContent = 'Disponible'; badgeUlt.className = 'badge badge-green';
+    } else {
+      // General disponible
+      rowGen.classList.remove('agotado');
+      badgeGen.textContent = 'Disponible'; badgeGen.className = 'badge badge-green';
+      rowUlt.classList.add('agotado');
+      badgeUlt.textContent = 'Disponible cuando se agote General'; badgeUlt.className = 'badge badge-gray';
+    }
+  });
+  reposicionarBoton();
+}
+
+// Coloca el botón "Reservar" justo debajo del último ticket disponible (no agotado)
+function reposicionarBoton() {
+  var btn = document.getElementById('btnComprar');
+  var filas = document.querySelectorAll('.ticket-row');
+  var disponibles = Array.prototype.filter.call(filas, function(f){ return !f.classList.contains('agotado'); });
+  if (disponibles.length > 0) {
+    var ultima = disponibles[disponibles.length - 1];
+    ultima.insertAdjacentElement('afterend', btn);
+  } else {
+    // Si no hay ninguno disponible, dejarlo tras la última fila
+    var todas = filas[filas.length - 1];
+    if (todas) todas.insertAdjacentElement('afterend', btn);
+  }
+}
+
+// Click en ticket
+document.querySelectorAll('.ticket-row').forEach(function(row) {
+  row.addEventListener('click', function() {
+    if (this.classList.contains('agotado')) return;
+    document.querySelectorAll('.ticket-row').forEach(function(r){ r.classList.remove('selected'); });
+    this.classList.add('selected');
+    ticketActual = this.id.replace('row-','');
+    var btn = document.getElementById('btnComprar');
+    btn.textContent = 'Reservar';
+    btn.classList.add('activo');
+  });
+});
+
+// Botón comprar
+document.getElementById('btnComprar').addEventListener('click', function() {
+  if (!ticketActual) return;
+  var esGen   = ticketActual.indexOf('gen') === 0;
+  var esMujer = ticketActual.indexOf('mujer') > 0;
+  var precio  = esGen ? 10 : 15;
+  var tipoLabel = esGen ? 'ENTRADA GENERAL' : 'ÚLTIMAS ENTRADAS';
+  var detalleLabel = (esGen ? 'Entrada General' : 'Últimas Entradas') + (esMujer ? ' Mujer' : ' Hombre');
+  document.getElementById('modalTitulo').textContent  = tipoLabel;
+  document.getElementById('modalDetalle').textContent = detalleLabel;
+  document.getElementById('modalPrecio').textContent  = '€' + precio;
+  document.getElementById('bizumImporte').textContent = precio + ' €';
+  document.getElementById('revolut-link').href = esGen ? REVOLUT_GEN : REVOLUT_ULT;
+  // reset
+  document.getElementById('inputNombre').value = '';
+  document.getElementById('inputEmail').value  = '';
+  document.getElementById('inputEdad').value   = '';
+  document.getElementById('modalError').style.display = 'none';
+  document.getElementById('btnConfirmar').style.display = 'none';
+  ['paso1','paso2','paso2Tarjeta','paso2Bizum','paso3'].forEach(function(p){ document.getElementById(p).classList.remove('active'); });
+  document.getElementById('paso1').classList.add('active');
+  document.getElementById('modalPago').classList.add('open');
+  document.body.style.overflow = 'hidden';
+});
+
+// Elegir método de pago: tarjeta
+document.getElementById('btnMetodoTarjeta').addEventListener('click', function() {
+  document.getElementById('paso2').classList.remove('active');
+  document.getElementById('paso2Tarjeta').classList.add('active');
+});
+
+// Elegir método de pago: Bizum
+document.getElementById('btnMetodoBizum').addEventListener('click', function() {
+  document.getElementById('paso2').classList.remove('active');
+  document.getElementById('paso2Bizum').classList.add('active');
+});
+
+// Volver a elegir método
+document.getElementById('btnVolverTarjeta').addEventListener('click', function() {
+  document.getElementById('paso2Tarjeta').classList.remove('active');
+  document.getElementById('paso2').classList.add('active');
+});
+document.getElementById('btnVolverBizum').addEventListener('click', function() {
+  document.getElementById('paso2Bizum').classList.remove('active');
+  document.getElementById('paso2').classList.add('active');
+});
+
+// Cerrar modal
+document.getElementById('btnCerrar').addEventListener('click', cerrarModal);
+document.getElementById('modalPago').addEventListener('click', function(e){ if(e.target===this) cerrarModal(); });
+function cerrarModal(){ document.getElementById('modalPago').classList.remove('open'); document.body.style.overflow=''; }
+
+// Paso 1 → 2
+document.getElementById('btnPaso2').addEventListener('click', function() {
+  var nombre = document.getElementById('inputNombre').value.trim();
+  var email  = document.getElementById('inputEmail').value.trim();
+  var edadStr = document.getElementById('inputEdad').value.trim();
+  var edad = parseInt(edadStr, 10);
+  var edadValida = edadStr !== '' && /^\d+$/.test(edadStr) && edad > 0;
+  if (!nombre || !email || email.indexOf('@') < 0 || !edadValida) {
+    document.getElementById('modalError').style.display = 'block'; return;
+  }
+  document.getElementById('modalError').style.display = 'none';
+  document.getElementById('paso1').classList.remove('active');
+  document.getElementById('paso2').classList.add('active');
+});
+
+// Mostrar botón confirmar tras click en Revolut
+document.getElementById('revolut-link').addEventListener('click', function() {
+  setTimeout(function(){ document.getElementById('btnConfirmar').style.display = 'block'; }, 2500);
+});
+
+// Confirmar pago (tarjeta o Bizum)
+function confirmarReserva(btn, textoGuardando) {
+  btn.textContent = textoGuardando; btn.disabled = true;
+  var nombre   = document.getElementById('inputNombre').value.trim();
+  var email    = document.getElementById('inputEmail').value.trim();
+  var edad     = parseInt(document.getElementById('inputEdad').value.trim(), 10);
+  var esGen    = ticketActual.indexOf('gen') === 0;
+  var esMujer  = ticketActual.indexOf('mujer') > 0;
+  var precio   = esGen ? 10 : 15;
+  var tipoKey  = esGen ? 'gen' : 'ult';
+  var genero   = esMujer ? 'mujer' : 'hombre';
+  var tipoNombre = (esGen ? 'Entrada General' : 'Últimas Entradas') + ' ' + (esMujer ? 'Mujer' : 'Hombre');
+
+  // Guardar en Supabase
+  fetch(SUPABASE_URL + '/rest/v1/reservas_realface', {
+    method: 'POST',
+    headers: {'apikey': SUPABASE_KEY, 'Authorization': 'Bearer ' + SUPABASE_KEY, 'Content-Type': 'application/json', 'Prefer': 'return=minimal'},
+    body: JSON.stringify({nombre:nombre, email:email, edad:edad, ticket_tipo:tipoKey, genero:genero, precio:precio, ticket_nombre:tipoNombre})
+  }).catch(function(){});
+
+  // Enviar email
+  fetch('https://api.emailjs.com/api/v1.0/email/send', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({service_id:EMAILJS_SVC, template_id:EMAILJS_TPL, user_id:EMAILJS_KEY, template_params:{nombre:nombre, email:email, to_email:email, ticket:tipoNombre, precio:precio+'€', dia:'Viernes 10 de julio', hora:'20:30h', lugar:'Bar Capitol, Plaza Nueva 11, Sevilla'}})
+  }).catch(function(){});
+
+  // Actualizar contador
+  contadores[ticketActual] = (contadores[ticketActual]||0) + 1;
+  actualizarUI();
+
+  // Mostrar éxito
+  document.getElementById('paso2Tarjeta').classList.remove('active');
+  document.getElementById('paso2Bizum').classList.remove('active');
+  document.getElementById('paso3').classList.add('active');
+}
+
+document.getElementById('btnConfirmar').addEventListener('click', function() {
+  confirmarReserva(this, 'Guardando...');
+});
+document.getElementById('btnConfirmarBizum').addEventListener('click', function() {
+  confirmarReserva(this, 'Guardando...');
+});
+
+// FAQ
+document.querySelectorAll('.faq-item').forEach(function(item) {
+  item.querySelector('.faq-q').addEventListener('click', function() {
+    var open = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
+    if (!open) item.classList.add('open');
+  });
+});
+
+// Hero slideshow
+(function(){
+  var slides = document.querySelectorAll('.hero-slide');
+  var cur = 0;
+  if (!slides.length) return;
+  setInterval(function(){
+    slides[cur].classList.remove('active');
+    cur = (cur+1) % slides.length;
+    slides[cur].classList.add('active');
+  }, 4000);
+})();
+
+// Init
+cargarContadores();
+</script>
+</body>
+</html>
